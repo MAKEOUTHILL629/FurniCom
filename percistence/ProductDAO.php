@@ -11,7 +11,6 @@ class ProductDAO
     private $price;
     private $createAt;
     private $updateAt;
-    private $productPictures;
 
     /**
      * ProductDAO constructor.
@@ -23,9 +22,8 @@ class ProductDAO
      * @param $price
      * @param $createAt
      * @param $updateAt
-     * @param $productPictures
      */
-    public function __construct($idProducto = "", $categoria = "", $name = "", $description = "", $stock = "", $price = "", $createAt = "", $updateAt = "", $productPictures = "")
+    public function __construct($idProducto = "", $categoria = "", $name = "", $description = "", $stock = "", $price = "", $createAt = "", $updateAt = "" )
     {
         $this->idProducto = $idProducto;
         $this->categoria = $categoria;
@@ -35,7 +33,6 @@ class ProductDAO
         $this->price = $price;
         $this->createAt = $createAt;
         $this->updateAt = $updateAt;
-        $this->productPictures = $productPictures;
     }
 
     public function create()
