@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Quicksand:wght@400;700&family=Varela+Round&display=swap");
+
+:root {
+  --font-varela: "Varela Round", sans-serif;
+  --font-quik: "Quicksand", sans-serif;
+  --font-mont: "Montserrat", sans-serif;
+
+  --color-1: #EFEFEF;
+  --color-2: #688B6D;
+  --color-3: #527156;
+  --color-4: #7EAB85;
+  --color-5: #CB8252;
+
+  --color-6: #7eab852d;
+  --color-7: #688f6ed0;
+  --color-8: rgb(226, 226, 226);
+
+  --text-color-1: #2B362D;
+  --text-color-2: #CEC9C9;
+
+}
