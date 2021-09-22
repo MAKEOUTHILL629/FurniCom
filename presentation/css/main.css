@@ -13,14 +13,18 @@ html {
 #principal-header {
 	width: 100%;
 	position: fixed;
+  z-index: 2;
+  height: 75px !important;
+  background-color: #fff;
 	font-family: var(--font-quik) !important;
 }
 
 #top-header {
 	min-width: 300px;
 	min-height: 70px;
+  background-color: #fff;
+  z-index: 2 !important;
 	position: relative;
-	z-index: 3;
 }
 
 .header-button-1 {
@@ -44,21 +48,7 @@ html {
 	animation: run-car 2s ease-in-out alternate;
 }
 
-@keyframes run-car {
-	0% {
-		left: 0px;
-	}
-	25% {
-		left: -20px;
-	}
-	75% {
-		left: 500px;
-		transform: rotateX(100deg);
-	}
-	100% {
-		left: 0px;
-	}
-}
+
 
 .decorate-container {
 	z-index: 1;
@@ -71,8 +61,16 @@ button {
 	transition: all 0.5s cubic-bezier(0.6, 0.04, 0.62, 2.39) !important;
 }
 
-button:hover {
+.img-header {
+	transition: all 0.4s cubic-bezier(0.6, 0.04, 0.62, 2.39) !important;
+}
+
+button:hover:not(#btn-toggle)  {
 	transform: scale(1.1);
+}
+
+.img-header:hover {
+	transform: scale(1.08);
 }
 
 .nav-item:hover .nav-link {
@@ -86,35 +84,20 @@ button:hover {
 	transition: font-size 0.4s cubic-bezier(0.6, 0.04, 0.62, 2.39), color 0.4s linear !important;
 }
 
-#principal-main {
-	padding-top: 140px;
-}
-
 .img-header {
 	max-height: 50px;
 	position: relative;
-	z-index: 3;
 }
 
 .nav-item {
 	min-width: 100px;
-	max-height: 30px;
-	text-align: center;
-}
 
-.navbar-nav {
-	position: relative;
-	z-index: 5;
+	text-align: center;
 }
 
 .furniture-icon {
 	width: 25px;
 	color: var(--color-5) !important;
-}
-
-#nav-items {
-	position: relative;
-	z-index: 5;
 }
 
 .dropdown-item {
@@ -126,13 +109,12 @@ button:hover {
 }
 
 #main-img {
-	min-height: 400px;
+	min-height: 500px;
 	position: relative;
-  z-index: -2;
 	background-image: url("../img/galleries/main-img.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-position: bottom;
+	background-position: 0px 90%;
 }
 
 #main-img:after {
@@ -148,6 +130,7 @@ button:hover {
 .main-title {
 	min-width: 300px;
 	font-family: var(--font-quik);
+  font-size: 2rem;
 	background-color: var(--color-7);
 	color: var(--color-1);
 	padding: 10px 0;
@@ -155,7 +138,13 @@ button:hover {
 	text-align: center;
 }
 
-
+.main-subtitle {
+	font-family: var(--font-quik);
+  font-size: 1.5rem;
+	padding: 10px 0;
+	margin-bottom: 100px !important;
+	text-align: center;
+}
 
 @media screen and (max-width: 1080px) {
 	#nav-container {
@@ -163,8 +152,80 @@ button:hover {
 	}
 }
 
-@media screen and (max-width: 576px) {
-	#principal-main {
-		padding-top: 180px;
+#nav-container {
+  position: relative;
+}
+
+.animation-toggle-1 {
+  animation: hidden-menu 1s cubic-bezier(0.6, 0.04, 0.62, 2.39) alternate;
+  position: relative;
+  z-index: 1 !important;
+  top:-80px;
+}
+
+.animation-toggle-2 {
+  animation: show-menu 0.8s cubic-bezier(.6,.04,.71,1) alternate;
+  position: relative;
+  z-index: 1 !important;
+  top:0px;
+}
+
+#btn-toggle {
+  position: fixed;
+  right: 40px;
+  top:100px;
+  background-color: var(--color-3);
+  border-radius: 100% !important;
+  color: #fff;
+  z-index: 2;
+}
+
+.animation-btn {
+  animation: rotate 1.2s cubic-bezier(0.6, 0.04, 0.62, 2.39) alternate;
+  transform: rotate(180deg);
+}
+
+@keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(180deg);
+    }
+}
+
+
+
+@keyframes hidden-menu {
+  0% {
+    top:0px;
+  }
+  100% {
+    top:-80px;
+  }
+}
+
+@keyframes show-menu {
+  0% {
+    top:-80px;
+  }
+  100% {
+    top:0px;
+  }
+}
+
+@keyframes run-car {
+	0% {
+		left: 0px;
+	}
+	25% {
+		left: -20px;
+	}
+	75% {
+		left: 500px;
+		transform: rotateX(100deg);
+	}
+	100% {
+		left: 0px;
 	}
 }
