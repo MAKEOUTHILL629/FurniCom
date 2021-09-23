@@ -2,18 +2,20 @@
 require_once 'percistence/Connection.php';
 require_once 'percistence/ProductPictureDAO.php';
 
-class ProductPicture{
+class ProductPicture
+{
     private $id;
     private $product;
     private $path;
     private $connection;
     private $productPictureDAO;
+
     /**
      * @param $id
      * @param $product
      * @param $path
      */
-    public function __construct($id="", $product="", $path="")
+    public function __construct($id = "", $product = "", $path = "")
     {
         $this->id = $id;
         $this->product = $product;
@@ -22,18 +24,20 @@ class ProductPicture{
         $this->productPictureDAO = new ProductPictureDAO($id, $product, $path);
     }
 
-    public function create(){
+    public function create()
+    {
         $this->connection->openConnection();
         $this->connection->execute($this->productPictureDAO->create());
         $this->connection->close();
     }
 
-    public function consultByProduct($idProduct){
+    public function consultByProduct($idProduct)
+    {
         $this->connection->openConnection();
         $this->connection->execute($this->productPictureDAO->consultByIdProduct($idProduct));
         $images = array();
-        while(($result = $this->connection->extract()) != null){
-            array_push($images, new ProductPicture($result[0],$result[1], $result[2] ));
+        while (($result = $this->connection->extract()) != null) {
+            array_push($images, new ProductPicture($result[0], $result[1], $result[2]));
         }
         $this->connection->close();
         return $images;
@@ -70,9 +74,6 @@ class ProductPicture{
     {
         $this->product = $product;
     }
-
-
-
 
 
 }

@@ -102,7 +102,8 @@ class Product
         return $products;
     }
 
-    public function consultAllByOrderName(){
+    public function consultAllByOrderName()
+    {
         $this->connection->openConnection();
         $this->connection->execute($this->productDAO->consultAllByOrderName());
         $products = array();
@@ -226,7 +227,6 @@ class Product
     {
         $this->updateAt = $updateAt;
     }
-
 
 
 }
