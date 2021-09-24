@@ -33,7 +33,7 @@ class UserDAO
      * @param $createAt
      * @param $updateAt
      */
-    public function __construct( $id = "", $role = "", $genre= "", $identityDocument = "", $documentNumber= "", $firtsName= "", $lastName= "", $address= "", $email= "", $password= "", $active= "", $createAt= "", $updateAt= "")
+    public function __construct($id = "", $role = "", $genre = "", $identityDocument = "", $documentNumber = "", $firtsName = "", $lastName = "", $address = "", $email = "", $password = "", $active = "", $createAt = "", $updateAt = "")
     {
         $this->id = $id;
         $this->role = $role;
@@ -50,5 +50,58 @@ class UserDAO
         $this->updateAt = $updateAt;
     }
 
+
+    public function create()
+    {
+        return "INSERT INTO users (fk_role, fk_genre, fk_identity_document, document_number, first_names, lastnames, address, email, password) 
+                VALUES ('" . $this->role . "', '" . $this->genre . "', '" . $this->documentNumber . "', '" . $this->firtsName . "', '" . $this->lastName . "', '" . $this->address . "', '" . $this->email . "', '" . md5($this->password) . "')";
+    }
+
+    public function consultLastId(){
+        return "SELECT last_insert_id()";
+    }
+
+
+    public function existEmail()
+    {
+        return "SELECT COUNT(id_user) FROM users WHERE email = '" . $this->email . "'";
+    }
+
+    public function existCodeOfActivation()
+    {
+        return "SELECT COUNT(id_user)
+                FROM users
+                WHERE idcliente = '" . $this->id . "' and codigo_activacion = '" . $this->codigo_activacion . "'";
+    }
+
+    public function setActive()
+    {
+        return "UPDATE users SET status = '1' WHERE users.id_user = '" . $this->id . "'";
+    }
+
+    public function setDisable()
+    {
+        return "UPDATE users SET status = '2' WHERE users.id_user = '" . $this->id . "'";
+    }
+
+    public function authenticate()
+    {
+        return "SELECT id_user, status
+                FROM users
+                WHERE email = '" . $this->email . "' AND password = '" . md5($this->password) . "'";
+    }
+
+    public function consultAll()
+    {
+        return "SELECT id_user,fk_role,fk_genre,fk_identity_document,document_number,first_names,lastnames,address,email,status,created_at,updated_at
+                FROM users";
+    }
+
+    public function consultStatus()
+    {
+        return "SELECT status
+                FROM users
+                WHERE id_user = " . $this->id;
+    }
 
 }

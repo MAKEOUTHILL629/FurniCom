@@ -37,9 +37,9 @@ class ProductDAO
 
     public function create()
     {
-        return "insert into producto (nombre, precio, cantidad, administrador_idadministrador, marca_idmarca, tipoproducto_idtipoproducto)
+        return "insert into producto (nombre,fk_category, description, stock, price)
                 values (
-                '" . $this->idProducto . "',
+                '" . $this->nombre . "',
                 '" . $this->categoria . "',
                 '" . $this->description . "',
                 '" . $this->stock . "',
@@ -50,18 +50,24 @@ class ProductDAO
 
     public function consult()
     {
-        return "SELECT id_product, fk_category, name, description, stock, price, created_at, updated_at
-                FROM products 
-                WHERE id_product = '" . $this->idProducto . "'";
+        return "SELECT id_product,fk_category,name,description,stock,price,created_at,updated_at
+                FROM products  
+                WHERE id_product  = '" . $this->idProducto . "'";
     }
 
 
-    public function consultAll($attribute, $address, $rows, $page)
+    public function consultAllByAtributteAndAddressAndRowsAndPage($attribute, $address, $rows, $page)
     {
-        return "SELECT id_product, fk_category, name, description, stock, price, created_at, updated_at
+        return "SELECT id_product,fk_category,name,description,stock,price,created_at,updated_at
                 FROM products " .
             (($attribute != "" && $address != "") ? "order by " . $attribute . " " . $address : "") .
             " limit " . (($page - 1) * $rows) . ", " . $rows;
+    }
+
+    public function consultAllByOrderName(){
+        return "SELECT id_product,fk_category,name,description,stock,price,created_at,updated_at
+                from products 
+                order by name";
     }
 
     public function consultNumberOfRecords()
@@ -70,11 +76,11 @@ class ProductDAO
                 FROM products";
     }
 
-    public function consultFilter($filtro)
+    public function consultFilter($filter)
     {
-        return "select idProducto, nombre, precio, cantidad, imagen, administrador_idadministrador, marca_idmarca, tipoproducto_idtipoproducto
-                from producto 
-                where nombre like '" . $filtro . "%'";
+        return "select id_product,fk_category,name,description,stock,price,created_at,updated_at
+                from products 
+                where name like '" . $filter . "%'";
     }
 
 

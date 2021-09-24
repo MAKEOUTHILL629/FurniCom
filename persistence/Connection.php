@@ -6,9 +6,9 @@ class Connection
     private $mysqli;
     private $result;
 
-    private function openConnection()
+    public function openConnection()
     {
-        $this->mysqli = new mysqli();
+        $this->mysqli = new mysqli("localhost", "root", "", "furnicom");
 
         $this->mysqli->set_charset("utf-8");
     }
