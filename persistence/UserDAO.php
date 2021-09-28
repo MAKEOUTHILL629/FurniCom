@@ -97,6 +97,13 @@ class UserDAO
                 FROM users";
     }
 
+
+    public function consultUser(){
+        return "SELECT fk_role,fk_genre,fk_identity_document,document_number,first_names,lastnames,address,email,status,created_at,updated_at
+                FROM users
+                WHERE id_user = '" . $this -> id . "'";
+    }
+
     public function consultStatus()
     {
         return "SELECT status

@@ -1,6 +1,6 @@
 <?php
-require_once 'percistence/Connection.php';
-require_once 'percistence/CategoryDAO.php';
+require_once 'persistence/Connection.php';
+require_once 'persistence/CategoryDAO.php';
 
 class Category
 {

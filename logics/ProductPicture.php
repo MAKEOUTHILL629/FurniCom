@@ -1,6 +1,6 @@
 <?php
-require_once 'percistence/Connection.php';
-require_once 'percistence/ProductPictureDAO.php';
+require_once 'persistence/Connection.php';
+require_once 'persistence/ProductPictureDAO.php';
 
 class ProductPicture
 {

@@ -1,7 +1,6 @@
 <?php
 
-
-class ShoppingCartDAO
+class ShoppingCart
 {
     private $id;
     private $consumer;
@@ -9,6 +8,8 @@ class ShoppingCartDAO
     private $updateAt;
     private $purchasedProducts;
     private $subTotal;
+    private $connection;
+    private $shopingCartDAO;
 
     /**
      * @param $id
@@ -26,18 +27,9 @@ class ShoppingCartDAO
         $this->updateAt = $updateAt;
         $this->purchasedProducts = $purchasedProducts;
         $this->subTotal = $subTotal;
-    }
 
-    public function create()
-    {
-        return "INSERT INTO shopping_carts (fk_consumer, purchased_products, subtotal) VALUES ('" . $this->consumer . "', '" . $this->purchasedProducts . "', '" . $this->subTotal . "');";
-    }
-
-
-    public function consult()
-    {
-        return "SELECT id_shopping_cart, fk_consumer,created_at ,updated_at, purchased_products, subtotal    FROM shopping_carts
-                WHERE id_shopping_cart = " . $this->id;
+        $this->connection = new Connection();
+        $this->shopingCartDAO = new ShoppingCartDAO($id, $consumer, $createAt, $updateAt, $purchasedProducts, $subTotal);
     }
 
 

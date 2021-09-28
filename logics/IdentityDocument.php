@@ -1,5 +1,8 @@
 <?php
 
+require_once 'persistence/Connection.php';
+require_once 'persistence/IdentityDocumentDAO.php';
+
 class IdentityDocument
 {
     private $id;
