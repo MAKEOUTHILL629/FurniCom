@@ -12,9 +12,9 @@
       <div class="row justify-content-around pt-3">
         <div class="col-12 col-lg-8">
           <div class="row justify-content-center">
-            <div class="me-2 max-with-carousel">
-              <div class="owl-carousel owl-product">
-                <div class="border shadow-sm rounded product-img">
+            <div class="col-12 col-sm-8">
+              <div class="owl-carousel owl-product w-100">
+                <div class="border shadow-sm rounded w-100 ">
                   <img src="presentation/img/products/photo.jpg" data-hash="one" class="w-100 h-100" alt="">
                 </div>
                 <div class="border shadow-sm rounded product-img">
@@ -25,20 +25,20 @@
                 </div>
               </div>
             </div>
-            <div id="buttons-owl" class="row product-img-sm align-items-start pb-5">
-              <div class="border shadow-sm rounded">
+            <div id="buttons-owl" class="col-3 pb-5">
+              <div class="border shadow-sm rounded mb-3">
                 <a href="#one"><img class="img-fluid" src="presentation/img/products/photo.jpg" alt=""></a>
               </div>
-              <div class="border shadow-sm rounded">
+              <div class="border shadow-sm rounded mb-3">
                 <a href="#two"><img class="img-fluid" src="presentation/img/products/photo_1.jpg" alt=""></a>
               </div>
-              <div class="border shadow-sm rounded">
+              <div class="border shadow-sm rounded mb-3">
                 <a href="#three"><img class="img-fluid" src="presentation/img/products/photo_2.jpg" alt=""></a>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-12 col-lg-4 ">
+        <div class="col-12 col-lg-4 position-relative" style="z-index:1">
           <div class="px-5 py-4 shadow rounded">
             <h4 class="font-quik fw-bold">Sofá Cama Berlín <i class="fas fa-truck-loading ps-3"></i></h4>
             <small class="text-muted fst-italic">REF: 2090123</small>
@@ -52,28 +52,30 @@
                 <p class="font-quik text-muted" style="text-align:justify">Impuestos incluidos <b>Gastos de envío</b> calculados en la caja, finalizando la compra se contactará un asesor contigo para calcular el valor del envío según destino.</p>
               </div>
             </div>
-            <div class="d-flex w-100 pt-3">
-              <h5 class="fw-bold font-quik text-muted">Cantidad: </h5>
-              <div class="d-flex justify-content-start w-100 ps-3">
-                <button class="btn quantity-btn">+</button>
-                <div class="col-2 p-0">
-                  <input class="form-control m-0" style="border-radius:0px !important;" type="number" value="1">
+            <div class="d-flex w-100 py-3">
+              <div class="d-flex justify-content-start w-100 align-items-center ">
+                <h5 class="fw-bold font-quik text-muted pe-4">Cantidad: </h5>
+                <div class="input-group" style="max-width:110px">
+                  <button id="plus" class="btn quantity-btn" style="max-height:30px;">+</button>
+                  <input id="input_cantidad" type="text" style="max-height:30px;" min="1" max="100" class="form-control m-0" value="1">
+                  <button id="substract" class="btn quantity-btn" style="max-height:30px;">-</button>
                 </div>
-                <button class="btn quantity-btn">-</button>
               </div>
-              <button class="btn" style="background: var(--color-4); color:#fff; font-size:0.8rem !important; width:100px !important">Agregar al Carrito</button>
+            </div>
+            <div class="d-flex justify-content-center w-100">
+              <button class="btn common-button" style="font-size:0.8rem !important; width:100% !important;">Agregar al Carrito</button>
             </div>
           </div>
-
         </div>
       </div>
     </div>
-    <section id="carousel" class="pt-1 position-relative">
-      <h2 class="main-subtitle" style="color:var(--color-5)">¿Te motiva algo nuevo?</h2>
-      <div class="bg-pr">
-        <?php require_once "presentation/layouts/owl.php" ?>
-      </div>
-    </section>
+  </div>
+  <section id="carousel" class="pt-1 position-relative">
+    <h2 class="main-subtitle" style="color:var(--color-5)">¿Te motiva algo nuevo?</h2>
+    <div class="bg-pr">
+      <?php require_once "presentation/layouts/owl.php" ?>
+    </div>
+  </section>
   </div>
   <?php require_once "presentation/layouts/footer.php" ?>
 </main>

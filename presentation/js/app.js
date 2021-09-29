@@ -1,3 +1,18 @@
+let btn_plus = document.getElementById("plus");
+let btn_substract = document.getElementById("substract");
+
+let input_quantity = document.getElementById("input_cantidad");
+
+btn_substract.addEventListener('click', () => {
+  console.log("entra=");
+  input_quantity.value = (Number(input_quantity.value) - 1) <= 0 ? 1 : input_quantity.value -1;
+});
+
+btn_plus.addEventListener('click', () => {
+  input_quantity.value = Number(input_quantity.value) + 1;
+});
+
+
 const btn = document.getElementById("btn-toggle");
 let nav = document.getElementById("nav-container");
 let shop_main = document.getElementById("shop-main");
@@ -124,9 +139,4 @@ if (owl_product) {
 }
 
 
-var myModal = document.getElementById('myModal')
-var myInput = document.getElementById('myInput')
 
-myModal.addEventListener('shown.bs.modal', function () {
-  myInput.focus()
-})

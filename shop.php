@@ -10,7 +10,7 @@
       <h3 class="text-center text-white">Sillas <img src="presentation/img/icons/silla.svg" class="furniture-icon" alt="icon_silla"></h3>
     </div>
     <div class="row">
-    <?php require_once "presentation/layouts/filters.php" ?>
+      <?php require_once "presentation/layouts/filters.php" ?>
       <div class="col-12 col-sm-12 col-md-8 col-lg-9 order-1 order-md-2">
         <div class="row justify-content-center pt-3 bg-pr rounded shadow">
           <div class="row">
@@ -96,6 +96,7 @@
                       <a href="product.php" class="btn shadow-sm plus-button rounded-circle"><i class="fas fa-search"></i></a>
                     </div>
                     <hr>
+                  </div>
                 </div>
               </div>
             </div>
@@ -112,9 +113,13 @@
                     <div>
                       <a href="product.php" class="btn shadow-sm plus-button rounded-circle"><i class="fas fa-search"></i></a>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
   </div>
   <?php require_once "presentation/layouts/footer.php" ?>

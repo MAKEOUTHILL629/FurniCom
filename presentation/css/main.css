@@ -483,14 +483,13 @@ button:hover:not(#btn-toggle),
 	color: #fff;
 }
 
-.max-with-carousel {
-  max-width: 600px !important;
+#buttons-owl {
+  max-width: 160px;
 }
 
 .product-img-sm {
   max-width: 200px !important;
 }
-
 
 @media screen and (max-width: 768px) {
 	#buttons-owl {
