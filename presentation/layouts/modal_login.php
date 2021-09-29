@@ -28,7 +28,7 @@
       </div>
       <div class="modal-footer justify-content-center bg-light">
         <p>¿No te has registrado?
-          <button class="btn ps-2" style="color:var(--color-5);" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#registerModal">
+          <button class="btn ps-2 modal_button" style="color:var(--color-5);" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#registerModal">
             Crear un perfil
           </button>
       </div>

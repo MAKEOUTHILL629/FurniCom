@@ -1,3 +1,7 @@
+let modal_button = document.getElementsByClassName("modal_button");
+
+
+
 let btn_plus = document.getElementById("plus");
 let btn_substract = document.getElementById("substract");
 

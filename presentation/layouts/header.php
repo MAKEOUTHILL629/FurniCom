@@ -2,7 +2,7 @@
   <section id="top-header" class="row align-items-center px-5 py-3 justify-content-center position-relative">
     <div class="col-6 col-sm-3 order-1 order-sm-1">
       <div class="row">
-        <button class="btn shadow-sm header-button-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button class="btn modal_button shadow-sm header-button-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
           Iniciar Sesión
         </button>
       </div>
@@ -16,7 +16,7 @@
     </div>
     <div class="col-6 col-sm-3 order-2 order-sm-3">
       <div class="d-flex justify-content-end">
-        <button class="btn shadow-sm header-button-2" data-bs-toggle="shopping_cart" data-bs-target="#shopping_cart"><i class="fas fa-dolly"></i></button>
+        <button class="btn modal_button shadow-sm header-button-2" data-bs-toggle="modal" data-bs-target="#shopping_cart"><i class="fas fa-dolly"></i></button>
       </div>
     </div>
   </section>
