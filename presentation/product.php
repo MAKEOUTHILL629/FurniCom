@@ -1,6 +1,3 @@
-<?php require_once "presentation/layouts/head.php" ?>
-<?php require_once "presentation/layouts/header.php" ?>
-
 <div class="decorate-line-2"></div>
 <main id="shop-main" class="shadow position-relative overflow">
   <button id="btn-toggle" class="btn rounded"><i class="fas fa-angle-double-up"></i></button>
@@ -79,5 +76,3 @@
   </div>
   <?php require_once "presentation/layouts/footer.php" ?>
 </main>
-
-<?php require_once "presentation/layouts/scripts.php" ?>
