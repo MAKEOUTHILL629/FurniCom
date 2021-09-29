@@ -24,7 +24,7 @@ $products = $product->consultByCategory($category);
     <div class="row">
       <?php require_once "presentation/layouts/filters.php" ?>
       <div class="col-12 col-sm-12 col-md-8 col-lg-9 order-1 order-md-2">
-        <div class="row justify-content-center pt-3 bg-pr rounded shadow">
+        <div class="row justify-content-center pt-3 bg-pr h-100 rounded shadow">
           <div class="row">
 
 
@@ -56,12 +56,14 @@ $products = $product->consultByCategory($category);
                 </div>
               </div>
 
-            <?php
-            }
-            ?>
+            <?php } ?>
 
           </div>
-          <?php require_once "presentation/layouts/footer.php" ?>
+        </div>
+      </div>
+    </div>
+
+    <?php require_once "presentation/layouts/footer.php" ?>
 </main>
 
 <?php require_once "presentation/layouts/scripts.php" ?>
