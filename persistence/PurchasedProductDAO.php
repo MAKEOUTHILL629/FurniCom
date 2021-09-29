@@ -32,5 +32,10 @@ class PurchasedProductDAO
                                                 ('" . $this->product . "', '" . $this->shoppingCart . "', '{$this->purchasedAmount}');";
     }
 
+    public function consultarByIdCart($cart)
+    {
+        return "SELECT id_purchased_product,fk_product,fk_shopping_cart,purchased_amount,created_at FROM purchased_products WHERE fk_shopping_cart = " . $cart;
+    }
+
 
 }
