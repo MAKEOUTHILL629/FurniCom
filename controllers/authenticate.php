@@ -1,15 +1,5 @@
 <?php
 
-//echo $_SERVER['DOCUMENT_ROOT'];
-//$raiz =  substr(__DIR__, 0, -24) ;
-////echo $raiz . 'logics\User.php';
-////require_once  $raiz . 'logics\User.php';
-
-echo __DIR__;
-require_once '../persistence/UserDAO.php';
-require_once '../logics/User.php';
-
-
 if (isset($_POST["email"]) && isset($_POST["password"])) {
 
     $email = str_replace(" ", "#", $_POST["email"]);
@@ -18,7 +8,9 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
     if ($user->authenticate()) {
         $_SESSION["id"] = $user->getId();
         echo 'Se ha logeado';
-        // header("Location: index.php?pid=" . base64_encode("presentacion/sesionAdministrador.php"));
+         header("location: index.php?pid=" . base64_encode("presentation/home.php"),     true, 301);
+         exit;
+
     }
 }
 

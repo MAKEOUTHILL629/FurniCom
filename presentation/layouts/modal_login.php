@@ -13,7 +13,7 @@
                     <i class="far fa-user-circle fw-bold" style="color:var(--color-4); font-size:10rem;"></i>
                 </div>
                 <h3 class="text-center mb-4 fw-bold" style="color:var(--color-4);">Sign In</h3>
-                <form action="controllers/authenticate.php" METHOD="POST">
+                <form action="index.php?pid=<?php echo base64_encode('controllers/authenticate.php')  ?>" METHOD="POST">
                     <div class="input-group input-group-lg py-2">
                         <span class="input-group-text d-flex justify-content-center" id="inputGroup-sizing-default"
                               style="width:40px"><i class="fas fa-id-card"></i></span>
