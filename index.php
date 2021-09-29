@@ -3,6 +3,7 @@
 
 require_once 'logics/Product.php';
 require_once 'logics/ProductPicture.php';
+require_once 'logics/User.php';
 
 ?>
 <main id="principal-main" class="shadow">

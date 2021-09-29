@@ -1,5 +1,6 @@
 <?php
-
+require_once 'logics/Product.php';
+require_once 'logics/ProductPicture.php';
 $product = new Product();
 $products = $product->consultRand();
 ?>
