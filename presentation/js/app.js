@@ -2,8 +2,27 @@ const btn = document.getElementById("btn-toggle");
 let nav = document.getElementById("nav-container");
 let shop_main = document.getElementById("shop-main");
 let navbar = document.getElementById("nav-items");
+let navbar_button = document.querySelector("#btn-toggle");
 
 let val = false;
+
+function load() {
+  let loader = document.getElementById("cont-lds ");
+  setTimeout(() => {
+    loader.remove();
+  }, 500);
+}
+
+
+navbar_button.addEventListener("click", () => {
+  navbar_button.disabled = true;
+  setTimeout(() => {
+    navbar_button.disabled = false;
+  }, 1000);
+  navbar_button.disabled = true;
+})
+
+
 
 btn.addEventListener("click", () => {
   nav.classList.toggle("animation-toggle-2");
@@ -45,7 +64,7 @@ $(window).resize(function () {
     const items = document.querySelectorAll(".sp-itm");
     console.log(items);
 
-    for(item of items){
+    for (item of items) {
       item.parentNode.removeChild(item);
     }
 
@@ -68,7 +87,7 @@ $(window).resize(function () {
 });
 
 
-var owl = $('.owl-carousel');
+var owl = $('.owl-gallery');
 owl.owlCarousel({
   loop: true,
   responsiveClass: true,
@@ -91,3 +110,23 @@ owl.owlCarousel({
     }
   }
 });
+
+var owl_product = $('.owl-product');
+
+if (owl_product) {
+  owl_product.owlCarousel({
+    items: 1,
+    loop: false,
+    center: true,
+    URLhashListener: true,
+    startPosition: 'URLHash'
+  })
+}
+
+
+var myModal = document.getElementById('myModal')
+var myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', function () {
+  myInput.focus()
+})
