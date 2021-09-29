@@ -3,14 +3,16 @@ let btn_substract = document.getElementById("substract");
 
 let input_quantity = document.getElementById("input_cantidad");
 
-btn_substract.addEventListener('click', () => {
-  console.log("entra=");
-  input_quantity.value = (Number(input_quantity.value) - 1) <= 0 ? 1 : input_quantity.value -1;
-});
+if (input_quantity) {
 
-btn_plus.addEventListener('click', () => {
-  input_quantity.value = Number(input_quantity.value) + 1;
-});
+  btn_substract.addEventListener('click', () => {
+    input_quantity.value = (Number(input_quantity.value) - 1) <= 0 ? 1 : input_quantity.value - 1;
+  });
+
+  btn_plus.addEventListener('click', () => {
+    input_quantity.value = Number(input_quantity.value) + 1;
+  });
+}
 
 
 const btn = document.getElementById("btn-toggle");

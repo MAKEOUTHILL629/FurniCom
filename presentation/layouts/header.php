@@ -16,7 +16,7 @@
     </div>
     <div class="col-6 col-sm-3 order-2 order-sm-3">
       <div class="d-flex justify-content-end">
-        <button class="btn shadow-sm header-button-2"><i class="fas fa-dolly"></i></button>
+        <button class="btn shadow-sm header-button-2" data-bs-toggle="shopping_cart" data-bs-target="#shopping_cart"><i class="fas fa-dolly"></i></button>
       </div>
     </div>
   </section>
@@ -80,3 +80,4 @@
 </header>
 
 <?php require_once "modal_login.php" ?>
+<?php require_once "shopping_cart.php" ?>
