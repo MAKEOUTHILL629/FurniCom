@@ -1,3 +1,5 @@
+
+
 <div class="modal fade" id="shopping_cart" tabindex="-1" aria-labelledby="shopping_cart" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content h-100 position-relative">

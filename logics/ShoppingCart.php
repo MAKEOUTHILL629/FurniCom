@@ -1,4 +1,7 @@
 <?php
+require_once 'persistence/Connection.php';
+require_once 'persistence/ShoppingCartDAO.php';
+
 
 class ShoppingCart
 {
@@ -30,6 +33,21 @@ class ShoppingCart
 
         $this->connection = new Connection();
         $this->shopingCartDAO = new ShoppingCartDAO($id, $consumer, $createAt, $updateAt, $purchasedProducts, $subTotal);
+    }
+
+    public function create()
+    {
+        $this->connection->openConnection();
+        $this->connection->execute($this->shopingCartDAO->create());
+        $this->connection->close();
+    }
+
+    public function consultarByConsumerAndNotPayment($consumer)
+    {
+        $this->connection->openConnection();
+        $this->connection->execute($this->shopingCartDAO->consultCartWithoutPayment($consumer));
+        $result = $this->connection->extract();
+        return $result[0];
     }
 
 

@@ -41,4 +41,10 @@ class ShoppingCartDAO
     }
 
 
+    public function consultCartWithoutPayment($consumer)
+    {
+        return "SELECT id_shopping_cart FROM shopping_carts WHERE fk_consumer = " . $consumer . " AND status = 0";
+    }
+
+
 }

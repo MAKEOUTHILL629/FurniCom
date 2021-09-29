@@ -1,4 +1,6 @@
 <?php
+require_once 'persistence/Connection.php';
+require_once 'persistence/PurchasedProductDAO.php';
 
 class PurchasedProduct
 {
@@ -17,7 +19,7 @@ class PurchasedProduct
      * @param $purchasedAmount
      * @param $cretedAt
      */
-    public function __construct($id, $product, $shoppingCart, $purchasedAmount, $cretedAt)
+    public function __construct($id = "", $product = "", $shoppingCart = "", $purchasedAmount = "", $cretedAt = "")
     {
         $this->id = $id;
         $this->product = $product;
@@ -26,6 +28,14 @@ class PurchasedProduct
         $this->cretedAt = $cretedAt;
         $this->connection = new Connection();
         $this->purchasedProductDAO = new PurchasedProductDAO($id, $product, $shoppingCart, $purchasedAmount, $cretedAt);
+    }
+
+    public function create()
+    {
+        $this->connection->openConnection();
+        $this->connection->execute($this->purchasedProductDAO->create());
+        $this->connection->close();
+
     }
 
 

@@ -26,4 +26,11 @@ class PurchasedProductDAO
     }
 
 
+    public function create()
+    {
+        return "INSERT INTO purchased_products ( fk_product, fk_shopping_cart, purchased_amount) VALUES
+                                                ('" . $this->product . "', '" . $this->shoppingCart . "', '{$this->purchasedAmount}');";
+    }
+
+
 }
