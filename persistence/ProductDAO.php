@@ -23,7 +23,7 @@ class ProductDAO
      * @param $createAt
      * @param $updateAt
      */
-    public function __construct($idProducto = "", $categoria = "", $name = "", $description = "", $stock = "", $price = "", $createAt = "", $updateAt = "" )
+    public function __construct($idProducto = "", $categoria = "", $name = "", $description = "", $stock = "", $price = "", $createAt = "", $updateAt = "")
     {
         $this->idProducto = $idProducto;
         $this->categoria = $categoria;
@@ -64,7 +64,8 @@ class ProductDAO
             " limit " . (($page - 1) * $rows) . ", " . $rows;
     }
 
-    public function consultAllByOrderName(){
+    public function consultAllByOrderName()
+    {
         return "SELECT id_product,fk_category,name,description,stock,price,created_at,updated_at
                 from products 
                 order by name";
@@ -81,6 +82,13 @@ class ProductDAO
         return "select id_product,fk_category,name,description,stock,price,created_at,updated_at
                 from products 
                 where name like '" . $filter . "%'";
+    }
+
+    public function consultRandom()
+    {
+        return "SELECT id_product,fk_category,name,description,stock,price,created_at,updated_at
+                from products 
+                ORDER BY RAND() LIMIT 6";
     }
 
 
