@@ -91,5 +91,11 @@ class ProductDAO
                 ORDER BY RAND() LIMIT 6";
     }
 
+    public function consultByCategory($category)
+    {
+        return "SELECT id_product,fk_category,products.name,description,stock,price,products.created_at,products.updated_at FROM products 
+                LEFT JOIN categories ON products.fk_category = categories.id_category WHERE categories.name = '" . $category . "'";
+    }
+
 
 }
