@@ -116,6 +116,36 @@ class Product
         return $products;
     }
 
+    public function consultRand()
+    {
+        $this->connection->openConnection();
+        $this->connection->execute($this->productDAO->consultRandom());
+        $products = array();
+        while (($result = $this->connection->extract()) != null) {
+            $category = new Category($result[1]);
+            $category->consult();
+            array_push($products, new Product($result[0], $result[2], $result[3], $result[4], $result[5], $category, $result[6], $result[7]));
+        }
+        $this->connection->close();
+        return $products;
+    }
+
+
+    public function consultByCategory($category)
+    {
+        $this->connection->openConnection();
+        $this->connection->execute($this->productDAO->consultByCategory($category));
+        $products = array();
+        while (($result = $this->connection->extract()) != null) {
+            $category = new Category($result[1]);
+            $category->consult();
+            array_push($products, new Product($result[0], $result[2], $result[3], $result[4], $result[5], $category, $result[6], $result[7]));
+        }
+        $this->connection->close();
+        return $products;
+    }
+
+
     /**
      * @return mixed|string
      */

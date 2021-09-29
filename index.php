@@ -1,5 +1,10 @@
 <?php require_once "presentation/layouts/head.php" ?>
-<?php require_once "presentation/layouts/header.php" ?>
+<?php require_once "presentation/layouts/header.php";
+
+require_once 'logics/Product.php';
+require_once 'logics/ProductPicture.php';
+
+?>
 <main id="principal-main" class="shadow">
   <button id="btn-toggle" class="btn rounded"><i class="fas fa-angle-double-up"></i></button>
   <section id="main-img" class="d-flex align-items-end shadow">
