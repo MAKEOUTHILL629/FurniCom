@@ -1,7 +1,6 @@
 <?php
 
-
-class OrderDAO
+class Order
 {
     private $id;
     private $shoppingCart;
@@ -10,6 +9,8 @@ class OrderDAO
     private $payment;
     private $createAt;
     private $updateAt;
+    private $connection;
+    private $orderDAO;
 
     /**
      * @param $id
@@ -20,7 +21,7 @@ class OrderDAO
      * @param $createAt
      * @param $updateAt
      */
-    public function __construct($id="", $shoppingCart="", $invoicePath="", $totalPurchase="", $payment="", $createAt="", $updateAt="")
+    public function __construct($id, $shoppingCart, $invoicePath, $totalPurchase, $payment, $createAt, $updateAt)
     {
         $this->id = $id;
         $this->shoppingCart = $shoppingCart;
@@ -29,6 +30,8 @@ class OrderDAO
         $this->payment = $payment;
         $this->createAt = $createAt;
         $this->updateAt = $updateAt;
+        $this->connection = new Connection();
+        $this->orderDAO = new OrderDAO($id, $shoppingCart, $invoicePath, $totalPurchase, $payment, $createAt, $updateAt);
     }
 
 

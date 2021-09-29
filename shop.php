@@ -95,7 +95,7 @@
                     <div>
                       <a href="product.php" class="btn shadow-sm plus-button rounded-circle"><i class="fas fa-search"></i></a>
                     </div>
-                  </div>
+                    <hr>
                 </div>
               </div>
             </div>
@@ -112,13 +112,9 @@
                     <div>
                       <a href="product.php" class="btn shadow-sm plus-button rounded-circle"><i class="fas fa-search"></i></a>
                     </div>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
   </div>
   <?php require_once "presentation/layouts/footer.php" ?>

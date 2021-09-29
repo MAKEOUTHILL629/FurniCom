@@ -1,6 +1,6 @@
 <?php
-require_once 'percistence/UserDAO.php';
-require_once 'percistence/Connection.php';
+require_once 'persistence/UserDAO.php';
+require_once 'persistence/Connection.php';
 
 class User
 {
@@ -113,13 +113,45 @@ class User
         $this->connection->close();
     }
 
+    public function consultUser()
+    {
+
+        $this->connection->openConnection();
+        $this->connection->execute($this->userDAO->consultUser());
+        $result = $this->connection->extraer();
+        $role = new Role($result[0]);
+        $role->consult();
+        $genre = new Genres($result[1]);
+        $genre->consult();
+        $identityDocument = new IdentityDocument($result[2]);
+        $identityDocument->consult();
+        $this->role = $role;
+        $this->genre = $genre;
+        $this->identityDocument = $identityDocument;
+        $this->documentNumber = $result[3];
+        $this->firstNames = $result[4];
+        $this->lastNames = $result[5];
+        $this->email = $result[6];
+        $this->status = $result[7];
+        $this->createAt = $result[8];
+        $this->updateAt = $result[9];
+
+    }
+
     public function consultAll()
     {
         $this->connection->openConnection();
         $this->connection->execute($this->userDAO->consultAll());
         $users = array();
         while (($result = $this->connection->extract()) != null) {
-            array_push($users, new User($result[0], $result[1], $result[2], $result[3], $result[4], $result[5], $result[6], $result[7], $result[8], $result[9], $result[10], $result[11], $result[12]));
+            $role = new Role($result[1]);
+            $role->consult();
+            $genre = new Genres($result[2]);
+            $genre->consult();
+            $identityDocument = new IdentityDocument($result[3]);
+            $identityDocument->consult();
+
+            array_push($users, new User($result[0], $role, $genre, $identityDocument, $result[4], $result[5], $result[6], $result[7], $result[8], $result[9], $result[10], $result[11], $result[12]));
         }
         $this->connection->close();
         return $users;
@@ -131,6 +163,11 @@ class User
         $this->connection->execute($this->userDAO->consultStatus());
         $result = $this->connection->extract();
         $this->status = $result[0];
+    }
+
+    public function consultNumberPhones(){
+        $phoneNumbers = new PhoneNumber();
+        return $phoneNumbers->consultByUser($this->id);
     }
 
 

@@ -1,5 +1,8 @@
 <?php
 
+require_once 'persistence/Connection.php';
+require_once 'persistence/GenresDAO.php';
+
 class Genres
 {
     private $id;
@@ -27,7 +30,7 @@ class Genres
     {
         $this->connection->openConnection();
         $this->connection->execute($this->genresDAO->consult());
-        $result = $this->connection->extraer();
+        $result = $this->connection->extract();
         $this->name = $result[0];
         $this->abbreviation = $result[1];
         $this->connection->close();

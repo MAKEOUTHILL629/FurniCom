@@ -1,6 +1,6 @@
 <?php
-require_once 'percistence/Connection.php';
-require_once 'percistence/ProductDAO.php';
+require_once 'persistence/Connection.php';
+require_once 'persistence/ProductDAO.php';
 require_once 'Category.php';
 
 
