@@ -14,9 +14,14 @@ if (input_quantity) {
   });
 
   btn_plus.addEventListener('click', () => {
-    input_quantity.value = Number(input_quantity.value) + 1;
+
+    if( Number(input_quantity.value) + 1 <= input_quantity.getAttribute('max')){
+      input_quantity.value = Number(input_quantity.value) + 1;
+    }
   });
 }
+
+
 
 
 const btn = document.getElementById("btn-toggle");

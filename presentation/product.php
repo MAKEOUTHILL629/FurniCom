@@ -92,7 +92,7 @@ $images = $picture->consultByProduct($product->getIdProduct());
                                 <h5 class="fw-bold font-quik text-muted pe-4">Cantidad: </h5>
                                 <div class="input-group" style="max-width:110px">
                                     <button id="plus" class="btn quantity-btn" style="max-height:30px;">+</button>
-                                    <input id="input_cantidad" type="text" style="max-height:30px;" min="1" max="100"
+                                    <input id="input_cantidad" type="text" style="max-height:30px;" min="1" max="<?php echo $product->getStock()?>"
                                            class="form-control m-0" value="1">
                                     <button id="substract" class="btn quantity-btn" style="max-height:30px;">-</button>
                                 </div>
@@ -111,7 +111,7 @@ $images = $picture->consultByProduct($product->getIdProduct());
                                 }
                                 ?>
 
-                            >Agregar al Carrito+
+                            >Agregar al Carrito
 
                             </button>
                         </div>
