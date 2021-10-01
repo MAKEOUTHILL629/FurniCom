@@ -27,7 +27,7 @@ $products = $product->consultRand();
                             <p class="carousel-price m-0 text-muted fs-4 text-center">
                                 $ <?php echo $item->getPrice() ?></p>
                         </div>
-                        <a href="#" class="btn shadow-sm common-button">¡Lo quiero!</a>
+                        <a href="index.php?pid=<?php echo base64_encode("presentation/product.php") ?>&product=<?php echo $item->getIdProduct() ?>" class="btn shadow-sm common-button">¡Lo quiero!</a>
                     </div>
                 </div>
             </div>

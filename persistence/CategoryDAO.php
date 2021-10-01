@@ -30,8 +30,8 @@ class CategoryDAO
 
     public function consultAll()
     {
-        return "select id_category, name,created_at,updated_at
-                from categories
+        return "SELECT id_category, name,created_at,updated_at
+                FROM categories
                 order by name asc";
     }
 

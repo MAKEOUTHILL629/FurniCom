@@ -50,6 +50,38 @@ class PurchasedProduct
         return $purchasedProducts;
     }
 
+    public function consultRepeatProduct(){
+        $this->connection->openConnection();
+        $this->connection->execute($this->purchasedProductDAO->consultByCartActive());
+        $result = $this->connection->extract();
+
+        return $result[0];
+    }
+
+    public function increaseAmount($amount, $idPurshaed){
+        $this->connection->openConnection();
+        $this->connection->execute($this->purchasedProductDAO->increaseQuantity($amount, $idPurshaed));
+        $this->connection->close();
+    }
+
+
+
+    public function consult($idPurshased){
+
+        $this->connection->openConnection();
+        $this->connection->execute($this->purchasedProductDAO->consult($idPurshased));
+        $result = $this->connection->extract();
+        $this->id = $result[0];
+        $this->product = $result[1];
+        $this->shoppingCart = $result[2];
+        $this->purchasedAmount = $result[3];
+        $this->cretedAt = $result[4];
+        $this->purchasedProductDAO = new PurchasedProductDAO($result[0], $result[1], $result[2], $result[3], $result[4]);
+        $this->connection->close();
+
+
+    }
+
     /**
      * @return mixed|string
      */

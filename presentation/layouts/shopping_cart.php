@@ -23,6 +23,7 @@ if (isset($_SESSION["id"])) {
             </div>
             <h2 class="main-subtitle pt-0">¡Veamos las compras!</h2>
             <div class="modal-body position-relative px-5 mb-4 py-0 bg-white" style="z-index:2 !important;">
+                <?php  if (isset($_SESSION["id"])) { ?>
                 <div class="px-5 py-4 shadow rounded">
                     <div class="container">
                         <div class="row justify-content-center">
@@ -30,9 +31,11 @@ if (isset($_SESSION["id"])) {
 
                             <?php
 
+                            $sumSubTotal = 0;
                             foreach ($purchases as $var) {
                                 $product = new Product($var->getProduct());
                                 $product->consultar();
+                                $sumSubTotal += $product->getPrice() * $var->getPurchasedAmount();
 
                                 $picture = new ProductPicture();
                                 $images = $picture->consultByProduct($product->getIdProduct());
@@ -74,13 +77,18 @@ if (isset($_SESSION["id"])) {
                             }
                             ?>
 
-
+                        <div>
+                            <h2> El Subtotal es : $<?php echo $sumSubTotal  ?></h2>
+                        </div>
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
                         <button type="submit" class="btn common-button rounded submit h-100 px-3">Comprar</button>
                     </div>
+
+
                 </div>
+                <?php  } ?>
             </div>
             <div class="modal-footer justify-content-center bg-light" style="z-index:3 !important">
                 <p class="text-muted">¡FurniCom para todos!</p>

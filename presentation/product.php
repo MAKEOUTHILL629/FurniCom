@@ -31,7 +31,7 @@ $images = $picture->consultByProduct($product->getIdProduct());
                                 foreach ($images as $img) {
                                     ?>
                                     <div class="border shadow-sm rounded w-100 ">
-                                        <img src="<?php echo $img->getPath() ?>" data-hash="one" class="w-100 h-100"
+                                        <img src="<?php echo $img->getPath() ?>" data-hash="<?php echo $img->getId() ?>" class="w-100 h-100"
                                              alt="">
                                     </div>
 
@@ -56,7 +56,7 @@ $images = $picture->consultByProduct($product->getIdProduct());
                             foreach ($images as $img) {
                                 ?>
                                 <div class="border shadow-sm rounded mb-3">
-                                    <a href="#one"><img class="img-fluid" src="<?php echo $img->getPath() ?>"
+                                    <a href="#<?php echo $img->getId() ?>"><img class="img-fluid" src="<?php echo $img->getPath() ?>"
                                                         alt=""></a>
                                 </div>
 
@@ -130,7 +130,7 @@ $images = $picture->consultByProduct($product->getIdProduct());
             if(isset($_SESSION["id"])){
             ?>
 
-            let url = 'index.php?pid=<?php echo base64_encode('controllers/addProductCart.php')?>&idProduct=<?php echo $product->getIdProduct() ?>&idUser=<?php echo $_SESSION["id"] ?>&amount=' + cantidad.value;
+            let url = 'index.php?pid=<?php echo base64_encode('controllers/addProductCart.php')?>&idProduct=<?php echo $product->getIdProduct() ?>&amount=' + cantidad.value;
             window.location.replace(url);
             <?php
             }

@@ -37,5 +37,19 @@ class PurchasedProductDAO
         return "SELECT id_purchased_product,fk_product,fk_shopping_cart,purchased_amount,created_at FROM purchased_products WHERE fk_shopping_cart = " . $cart;
     }
 
+    public function consultByCartActive()
+    {
+        return "SELECT id_purchased_product,fk_product,fk_shopping_cart,purchased_amount,created_at FROM purchased_products WHERE fk_product= " . $this->product . " AND fk_shopping_cart=" . $this->shoppingCart;
+    }
+
+    public function increaseQuantity($amount, $idPurchased)
+    {
+        return "UPDATE purchased_products SET purchased_amount= " . ($this->purchasedAmount + $amount) . " WHERE id_purchased_product = " . $idPurchased;
+    }
+
+    public function consult($idPurshased)
+    {
+        return "SELECT id_purchased_product, fk_product, fk_shopping_cart, purchased_amount, created_at FROM purchased_products WHERE id_purchased_product=" . $idPurshased;
+    }
 
 }

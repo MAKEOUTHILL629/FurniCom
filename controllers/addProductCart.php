@@ -1,15 +1,32 @@
 <?php
 
-if ($_GET["idProduct"] && $_GET["idUser"] && $_GET["amount"]) {
-    $consumer = $_GET["idUser"];
+if ($_GET["idProduct"] && $_SESSION["id"] && $_GET["amount"]) {
+    $consumer = $_SESSION["id"];
     $idProduct = $_GET["idProduct"];
     $amount = $_GET["amount"];
     $shoppingCart = new ShoppingCart();
     $result = $shoppingCart->consultarByConsumerAndNotPayment($consumer);
 
-    if (isset($result)) {
-        $purchase = new PurchasedProduct("", $idProduct, $result, $amount);
-        $purchase->create();
+    $product = new Product($idProduct);
+    $product->consultar();
+
+    if($product->getStock() >= $amount){
+        if (isset($result)) {
+            $purchase = new PurchasedProduct("", $idProduct, $result, $amount);
+            $resultExists = $purchase->consultRepeatProduct();
+
+            if(isset($resultExists)){
+
+                $purchase->consult($resultExists);
+                if($purchase->getPurchasedAmount() + $amount <= $product->getStock()){
+                    $purchase->increaseAmount($amount, $resultExists);
+                }
+            }else{
+                $purchase->create();
+            }
+        }
+    }else{
+
     }
 
     ?>
