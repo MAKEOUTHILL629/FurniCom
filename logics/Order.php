@@ -35,4 +35,11 @@ class Order
     }
 
 
+    public function create()
+    {
+        $this->connection->openConnection();
+        $this->connection->execute($this->orderDAO->create());
+        $this->connection->close();
+    }
+
 }

@@ -46,5 +46,9 @@ class ShoppingCartDAO
         return "SELECT id_shopping_cart FROM shopping_carts WHERE fk_consumer = " . $consumer . " AND status = 0";
     }
 
+    public function updateStatusCartDisable(){
+        return "UPDATE shopping_carts SET status=1  WHERE id_shopping_cart =". $this->id;
+    }
+
 
 }

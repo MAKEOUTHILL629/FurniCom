@@ -31,7 +31,7 @@ if ($_GET["idProduct"] && $_SESSION["id"] && $_GET["amount"]) {
 
     ?>
     <script>
-        window.location.replace('index.php');
+        window.location.replace('index.php?pid=<?php echo base64_encode("presentation/product.php") ?>&product=<?php echo$_GET["idProduct"] ?>');
     </script>
 
     <?php

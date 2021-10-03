@@ -31,5 +31,10 @@ class OrderDAO
         $this->updateAt = $updateAt;
     }
 
+    public function create(){
+        return "INSERT INTO orders(fk_shopping_cart, invoice_path, total_purchase, payment) 
+                            VALUES (".$this->shoppingCart .",". $this->invoicePath .",". $this->totalPurchase .",". $this->payment .")";
+    }
+
 
 }

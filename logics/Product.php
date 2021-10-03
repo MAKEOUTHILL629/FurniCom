@@ -50,7 +50,7 @@ class Product
     }
 
 
-    public function consultar()
+    public function consult()
     {
         $this->connection->openConnection();
         $this->connection->execute($this->productDAO->consult());
@@ -143,6 +143,12 @@ class Product
         }
         $this->connection->close();
         return $products;
+    }
+
+    public function susbtractStock($amount){
+        $this->connection->openConnection();
+        $this->connection->execute($this->productDAO->substractStock($amount));
+        $this->connection->close();
     }
 
 

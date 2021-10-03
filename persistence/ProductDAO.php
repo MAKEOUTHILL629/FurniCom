@@ -97,5 +97,9 @@ class ProductDAO
                 LEFT JOIN categories ON products.fk_category = categories.id_category WHERE categories.name = '" . $category . "'";
     }
 
+    public function substractStock($amount){
+        return "UPDATE products SET stock =". ($this->stock - $amount) ."  WHERE id_product=". $this->idProducto;
+    }
+
 
 }
