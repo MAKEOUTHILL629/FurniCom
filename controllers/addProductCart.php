@@ -5,10 +5,10 @@ if ($_GET["idProduct"] && $_SESSION["id"] && $_GET["amount"]) {
     $idProduct = $_GET["idProduct"];
     $amount = $_GET["amount"];
     $shoppingCart = new ShoppingCart();
-    $result = $shoppingCart->consultarByConsumerAndNotPayment($consumer);
+    $result = $shoppingCart->consultByConsumerAndNotPayment($consumer);
 
     $product = new Product($idProduct);
-    $product->consultar();
+    $product->consult();
 
     if($product->getStock() >= $amount){
         if (isset($result)) {

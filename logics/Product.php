@@ -42,7 +42,7 @@ class Product
 
     }
 
-    public function crear()
+    public function create()
     {
         $this->connection->openConnection();
         $this->connection->execute($this->productDAO->create());

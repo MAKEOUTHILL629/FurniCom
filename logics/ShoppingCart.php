@@ -42,7 +42,7 @@ class ShoppingCart
         $this->connection->close();
     }
 
-    public function consultarByConsumerAndNotPayment($consumer)
+    public function consultByConsumerAndNotPayment($consumer)
     {
         $this->connection->openConnection();
         $this->connection->execute($this->shopingCartDAO->consultCartWithoutPayment($consumer));
