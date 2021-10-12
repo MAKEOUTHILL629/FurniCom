@@ -1,4 +1,7 @@
 <?php
+require_once 'persistence/Connection.php';
+require_once 'persistence/OrderDAO.php';
+
 
 class Order
 {

@@ -20,7 +20,7 @@ class OrderDAO
      * @param $createAt
      * @param $updateAt
      */
-    public function __construct($id="", $shoppingCart="", $invoicePath="", $totalPurchase="", $payment="", $createAt="", $updateAt="")
+    public function __construct($id = "", $shoppingCart = "", $invoicePath = "", $totalPurchase = "", $payment = "", $createAt = "", $updateAt = "")
     {
         $this->id = $id;
         $this->shoppingCart = $shoppingCart;
@@ -31,9 +31,10 @@ class OrderDAO
         $this->updateAt = $updateAt;
     }
 
-    public function create(){
+    public function create()
+    {
         return "INSERT INTO orders(fk_shopping_cart, invoice_path, total_purchase, payment) 
-                            VALUES (".$this->shoppingCart .",". $this->invoicePath .",". $this->totalPurchase .",". $this->payment .")";
+                            VALUES ('" . $this->shoppingCart . "','" . $this->invoicePath . "','" . $this->totalPurchase . "','" . $this->payment . "')";
     }
 
 

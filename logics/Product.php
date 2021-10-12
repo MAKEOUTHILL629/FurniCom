@@ -64,6 +64,7 @@ class Product
         $this->createdAt = $result[6];
         $this->updateAt = $result[7];
         $this->category = $category;
+        $this->productDAO = new ProductDAO($this->idProduct, $this->category->getId(), $this->name, $this->description, $this->stock, $this->price, $this->createdAt, $this->updateAt);
     }
 
 
@@ -145,7 +146,8 @@ class Product
         return $products;
     }
 
-    public function susbtractStock($amount){
+    public function susbtractStock($amount)
+    {
         $this->connection->openConnection();
         $this->connection->execute($this->productDAO->substractStock($amount));
         $this->connection->close();

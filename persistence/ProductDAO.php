@@ -98,6 +98,7 @@ class ProductDAO
     }
 
     public function substractStock($amount){
+        echo $amount . "  la cantidad es " . $this->stock ;
         return "UPDATE products SET stock =". ($this->stock - $amount) ."  WHERE id_product=". $this->idProducto;
     }
 

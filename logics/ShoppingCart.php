@@ -50,10 +50,11 @@ class ShoppingCart
         return $result[0];
     }
 
-    public function updateStatusCartDisable(){
+    public function updateStatusCartDisable()
+    {
         $this->connection->openConnection();
         $this->connection->execute($this->shopingCartDAO->updateStatusCartDisable());
-        $this->close();
+        $this->connection->close();
     }
 
 

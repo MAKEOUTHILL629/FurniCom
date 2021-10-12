@@ -5,6 +5,7 @@ require_once "logics/ProductPicture.php";
 require_once "logics/User.php";
 require_once "logics/ShoppingCart.php";
 require_once "logics/PurchasedProduct.php";
+require_once "logics/Order.php";
 
 
 if (isset($_GET["sesion"]) && $_GET["sesion"] == "false") {

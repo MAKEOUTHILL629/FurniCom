@@ -4,7 +4,7 @@ if (isset($_GET["product"])) {
     $product = new Product($_GET["product"]);
 }
 
-$product->consultar();
+$product->consult();
 $picture = new ProductPicture();
 $images = $picture->consultByProduct($product->getIdProduct());
 
@@ -31,7 +31,8 @@ $images = $picture->consultByProduct($product->getIdProduct());
                                 foreach ($images as $img) {
                                     ?>
                                     <div class="border shadow-sm rounded w-100 ">
-                                        <img src="<?php echo $img->getPath() ?>" data-hash="<?php echo $img->getId() ?>" class="w-100 h-100"
+                                        <img src="<?php echo $img->getPath() ?>" data-hash="<?php echo $img->getId() ?>"
+                                             class="w-100 h-100"
                                              alt="">
                                     </div>
 
@@ -56,8 +57,9 @@ $images = $picture->consultByProduct($product->getIdProduct());
                             foreach ($images as $img) {
                                 ?>
                                 <div class="border shadow-sm rounded mb-3">
-                                    <a href="#<?php echo $img->getId() ?>"><img class="img-fluid" src="<?php echo $img->getPath() ?>"
-                                                        alt=""></a>
+                                    <a href="#<?php echo $img->getId() ?>"><img class="img-fluid"
+                                                                                src="<?php echo $img->getPath() ?>"
+                                                                                alt=""></a>
                                 </div>
 
                                 <?php
@@ -92,7 +94,8 @@ $images = $picture->consultByProduct($product->getIdProduct());
                                 <h5 class="fw-bold font-quik text-muted pe-4">Cantidad: </h5>
                                 <div class="input-group" style="max-width:110px">
                                     <button id="plus" class="btn quantity-btn" style="max-height:30px;">+</button>
-                                    <input id="input_cantidad" type="text" style="max-height:30px;" min="1" max="<?php echo $product->getStock()?>"
+                                    <input id="input_cantidad" type="text" style="max-height:30px;" min="1"
+                                           max="<?php echo $product->getStock() ?>"
                                            class="form-control m-0" value="1">
                                     <button id="substract" class="btn quantity-btn" style="max-height:30px;">-</button>
                                 </div>
@@ -104,7 +107,7 @@ $images = $picture->consultByProduct($product->getIdProduct());
                                     onclick="enviarCantidad()"
                                 <?php
 
-                                if (!isset($_SESSION["id"]) || $_SESSION["id"] == ""){
+                                if (!isset($_SESSION["id"]) || $_SESSION["id"] == "") {
                                     ?>
                                     data-bs-toggle="modal" data-bs-target="#exampleModal"
                                     <?php
