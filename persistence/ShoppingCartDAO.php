@@ -9,6 +9,7 @@ class ShoppingCartDAO
     private $updateAt;
     private $purchasedProducts;
     private $subTotal;
+    private $status;
 
     /**
      * @param $id
@@ -18,7 +19,7 @@ class ShoppingCartDAO
      * @param $purchasedProducts
      * @param $subTotal
      */
-    public function __construct($id = "", $consumer = "", $createAt = "", $updateAt = "", $purchasedProducts = "", $subTotal = "")
+    public function __construct($id = "", $consumer = "", $createAt = "", $updateAt = "", $purchasedProducts = "", $subTotal = "", $status = "")
     {
         $this->id = $id;
         $this->consumer = $consumer;
@@ -26,6 +27,7 @@ class ShoppingCartDAO
         $this->updateAt = $updateAt;
         $this->purchasedProducts = $purchasedProducts;
         $this->subTotal = $subTotal;
+        $this->status = $status;
     }
 
     public function create()
@@ -38,6 +40,11 @@ class ShoppingCartDAO
     {
         return "SELECT id_shopping_cart, fk_consumer,created_at ,updated_at, purchased_products, subtotal    FROM shopping_carts
                 WHERE id_shopping_cart = " . $this->id;
+    }
+
+    public function consultById()
+    {
+        return "SELECT id_shopping_cart,fk_consumer,created_at,updated_at,purchased_products,subtotal,status FROM shopping_carts WHERE id_shopping_cart = {$this->id}";
     }
 
 
