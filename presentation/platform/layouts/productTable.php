@@ -31,10 +31,10 @@
                             <td>$535000</td>
                             <td>
                                 <div class="d-flex w-100 justify-content-center">
-                                    <a href="#" class="btn btn-info btn-circle btn-sm">
+                                    <a href="index.php?sid=<?php echo base64_encode("product_show")?>" class="btn btn-info btn-circle btn-sm">
                                         <i class="fas fa-info-circle"></i>
                                     </a>
-                                    <a href="#" class="btn btn-warning btn-circle btn-sm mx-2">
+                                    <a href="index.php?sid=<?php echo base64_encode("product_form")?>" class="btn btn-warning btn-circle btn-sm mx-2">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     <a href="#" class="btn btn-danger btn-circle btn-sm">

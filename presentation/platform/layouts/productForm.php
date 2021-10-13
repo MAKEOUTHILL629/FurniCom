@@ -3,7 +3,7 @@
     <!-- Basic Card Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3 bg-primary d-flex pt-4 justify-content-center align-items-center">
-            <h4 class="font-weight-bold text-white text-center">Formulario Creación Producto</h4>
+            <h4 class="font-weight-bold text-white text-center">Formulario Producto</h4>
         </div>
         <div class="card-body">
             <form action="">

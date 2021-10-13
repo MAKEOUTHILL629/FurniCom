@@ -10,7 +10,7 @@
             <div class="modal-body">Seleccionar "Cerrar sesión" finalizaría tu sesión actual incluyendo acciones no guardadas.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                <a class="btn btn-primary" href="login.html">Cerrar sesión</a>
+                <a class="btn btn-primary" href="/FurniCom">Cerrar sesión</a>
             </div>
         </div>
     </div>

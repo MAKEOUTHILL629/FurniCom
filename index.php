@@ -11,13 +11,19 @@ $pid = "";
 $sid = "";
 $action = "";
 $context = "";
+$form = "";
 
 if (isset($_GET["sid"])) {
     switch (base64_decode($_GET["sid"])) {
+        case "dashboard":
+            $action = "dashboard";
+            break;
+
         case "user_form":
             $action = "presentation/platform/layouts/userForm.php";
             $context = "Formulario";
             break;
+
         case "product_form":
             $action = "presentation/platform/layouts/productForm.php";
             $context = "Formulario";
@@ -26,20 +32,25 @@ if (isset($_GET["sid"])) {
         case "users_table":
             $action = "presentation/platform/layouts/userTable.php";
             $context = "Tabla de Información";
+            $form = "user_form";
             break;
+
         case "orders_table":
             $action = "presentation/platform/layouts/orderTable.php";
             $context = "Tabla de Información";
             break;
+
         case "products_table":
             $action = "presentation/platform/layouts/productTable.php";
             $context = "Tabla de Información";
+            $form = "product_form";
             break;
 
         case "user_show":
             $action = "presentation/platform/layouts/userShow.php";
             $context = "Vista de Item";
             break;
+            
         case "product_show":
             $action = "presentation/platform/layouts/productShow.php";
             $context = "Vista de Item";
@@ -77,9 +88,7 @@ if ($pid != "" && (in_array($pid, $pagSinSesion) || (isset($_SESSION["id"]) && $
 }
 
 if ($sid) {
-    include "presentation/platform/blank.php";
-} else if ($pid == "") {
-    include "presentation/platform/dashboard.php";
+    include $sid == "dashboard" ? "presentation/platform/dashboard.php" : "presentation/platform/blank.php";
 }
 
 if (!isset($_GET["sid"])) {
