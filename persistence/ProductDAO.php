@@ -37,14 +37,19 @@ class ProductDAO
 
     public function create()
     {
-        return "insert into producto (nombre,fk_category, description, stock, price)
-                values (
-                '" . $this->nombre . "',
+        return "INSERT INTO products (name,fk_category, description, stock, price)
+                VALUES (
+                '" . $this->name . "',
                 '" . $this->categoria . "',
                 '" . $this->description . "',
                 '" . $this->stock . "',
                 '" . $this->price . "'
                 )";
+    }
+
+    public function consultIdLastCreated()
+    {
+        return "SELECT MAX(`id_product`) AS id FROM products";
     }
 
 
@@ -97,9 +102,10 @@ class ProductDAO
                 LEFT JOIN categories ON products.fk_category = categories.id_category WHERE categories.name = '" . $category . "'";
     }
 
-    public function substractStock($amount){
-        echo $amount . "  la cantidad es " . $this->stock ;
-        return "UPDATE products SET stock =". ($this->stock - $amount) ."  WHERE id_product=". $this->idProducto;
+    public function substractStock($amount)
+    {
+        echo $amount . "  la cantidad es " . $this->stock;
+        return "UPDATE products SET stock =" . ($this->stock - $amount) . "  WHERE id_product=" . $this->idProducto;
     }
 
 

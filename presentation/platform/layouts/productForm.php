@@ -6,7 +6,8 @@
             <h4 class="font-weight-bold text-white text-center">Formulario Producto</h4>
         </div>
         <div class="card-body">
-            <form action="">
+            <form action="index.php?pid=<?php echo base64_encode('controllers/createProduct.php') ?>" method="POST"
+                  enctype='multipart/form-data'>
 
                 <!-- Divider -->
                 <hr class="sidebar-divider">
@@ -20,7 +21,8 @@
                                         <i class="fas fa-signature"></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Indique aquí el nombre del producto">
+                                <input type="text" class="form-control" id="exampleInputEmail1" name="nombre_producto"
+                                       aria-describedby="emailHelp" placeholder="Indique aquí el nombre del producto">
                             </div>
                         </div>
                     </div>
@@ -35,12 +37,20 @@
                                         <i class="fas fa-chair"></i>
                                     </span>
                                 </div>
-                                <select class="form-control" id="exampleFormControlSelect1">
+                                <select class="form-control" id="exampleFormControlSelect1" name="categoria">
                                     <option>Selecciona Categoría</option>
-                                    <option>Sillas</option>
-                                    <option>Muebles</option>
-                                    <option>Sofás</option>
-                                    <option>Mesas</option>
+                                    <?php
+                                    $category = new Category();
+                                    $categories = $category->consultAll();
+
+                                    foreach ($categories as $cate) {
+                                        ?>
+                                        <option value="<?php echo $cate->getId() ?>"><?php echo $cate->getName() ?></option>
+                                        <?php
+                                    }
+                                    ?>
+
+
                                 </select>
                             </div>
                         </div>
@@ -54,7 +64,8 @@
                                         <i class="fas fa-dollar-sign"></i>
                                     </span>
                                 </div>
-                                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Indique el precio del producto">
+                                <input type="number" class="form-control" id="exampleInputEmail1" name="precio"
+                                       aria-describedby="emailHelp" placeholder="Indique el precio del producto">
                             </div>
                         </div>
                     </div>
@@ -66,7 +77,9 @@
                     <div class="col-12 col-md">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Descripción</label>
-                            <textarea class="form-control" style="min-height: 100px !important;" id="exampleFormControlTextarea1" rows="3" placeholder="Indique detalles del producto"></textarea>
+                            <textarea class="form-control" style="min-height: 100px !important;" name="descripcion"
+                                      id="exampleFormControlTextarea1" rows="3"
+                                      placeholder="Indique detalles del producto"></textarea>
                         </div>
                     </div>
 
@@ -81,7 +94,8 @@
                                         <i class="fas fa-boxes"></i>
                                     </span>
                                 </div>
-                                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="000">
+                                <input type="number" class="form-control" id="exampleInputEmail1" name="stock"
+                                       aria-describedby="emailHelp" placeholder="000">
                             </div>
                         </div>
                     </div>
@@ -89,7 +103,9 @@
                     <div class="col-12 col-md-6">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Imágenes</label>
-                            <input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" multiple>
+                            <input type="file" name="file[]" id="file" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp"
+                                   multiple>
 
                         </div>
                     </div>
