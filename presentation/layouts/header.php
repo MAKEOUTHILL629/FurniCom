@@ -10,6 +10,11 @@
                         Cerrar sesion
                     </a>
 
+
+                    <a class="btn modal_button shadow-sm header-button-1" href="index.php?sid=<?php echo base64_encode("dashboard") ?>">
+                        Dashboard
+                    </a>
+
                     <?php
                 } else {
 

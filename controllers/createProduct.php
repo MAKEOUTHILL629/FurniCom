@@ -1,5 +1,5 @@
 <?php
-echo $_POST["nombre_producto"] . " " . $_POST["categoria"] . " " . $_POST["precio"] . " " . $_POST["descripcion"] . " " . $_POST["stock"] . " ";
+
 
 $product = new Product("", $_POST["nombre_producto"], $_POST["descripcion"], $_POST["stock"], $_POST["precio"], $_POST["categoria"], "", "");
 $product->create();

@@ -93,7 +93,7 @@ if ($pid != "" && (in_array($pid, $pagSinSesion) || (isset($_SESSION["id"]) && $
 } else if ($sid == "") {
     include "presentation/home.php";
 }
-if (isset($_SESSION["id"])) {
+if (isset($_SESSION["id"]) && ""!= $_SESSION["id"]) {
     $user = new User($_SESSION["id"]);
     $user->consultUser();
     if ($sid && ($user->getRole()->getId() >= 1 && $user->getRole()->getId() <= 3)) {
