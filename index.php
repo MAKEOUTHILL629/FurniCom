@@ -99,8 +99,6 @@ if (isset($_SESSION["id"]) && ""!= $_SESSION["id"]) {
     if ($sid && ($user->getRole()->getId() >= 1 && $user->getRole()->getId() <= 3)) {
         include $sid == "dashboard" ? "presentation/platform/dashboard.php" : "presentation/platform/blank.php";
     }
-
-
 }
 
 if (!isset($_GET["sid"])) {
