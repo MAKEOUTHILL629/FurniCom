@@ -36,14 +36,14 @@ if (isset($_SESSION["id"])) {
             $order = new Order("", $result, "", $totalValue, 0, "", "");
             $order->create();
 
-
             $cart = new ShoppingCart($result, $consumer, "", "", $amountProducts, $totalValue);
             $cart->updateStatusCartDisable();
 
+            $mail = new Mail();
+            $mail->makeMail($result);
 
         }
-
-
+        
     }
 
 }
