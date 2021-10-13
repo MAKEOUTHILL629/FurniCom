@@ -9,6 +9,7 @@ require_once "logics/IdentityDocument.php";
 require_once "logics/ShoppingCart.php";
 require_once "logics/PurchasedProduct.php";
 require_once "logics/Order.php";
+require_once "logics/CategoryByStock.php";
 
 $pid = "";
 $sid = "";

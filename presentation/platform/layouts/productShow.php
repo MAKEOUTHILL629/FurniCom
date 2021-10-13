@@ -1,3 +1,13 @@
+<?php
+
+
+if (isset($_GET["idproduct"])) {
+    $product = new Product($_GET["idproduct"]);
+    $product->consult();
+}
+
+?>
+
 <!-- Show de Producto -->
 <div class="col-12  col-sm-10 col-md-12 col-lg-8">
     <!-- Basic Card Example -->
@@ -21,7 +31,7 @@
                                         <i class="fas fa-signature"></i>
                                     </span>
                                 </div>
-                                <p class="form-control" style="background-color: #f8f8f8;">Mesa de estar lo más bueno wow</p>
+                                <p class="form-control" style="background-color: #f8f8f8;"><?php echo $product->getName() ?></p>
                             </div>
                         </div>
                     </div>
@@ -36,7 +46,7 @@
                                         <i class="fas fa-chair"></i>
                                     </span>
                                 </div>
-                                <p class="form-control" style="background-color: #f8f8f8;">Mesas</p>
+                                <p class="form-control" style="background-color: #f8f8f8;"><?php echo $product->getCategory()->getName() ?></p>
                             </div>
                         </div>
                     </div>
@@ -49,7 +59,7 @@
                                         <i class="fas fa-dollar-sign"></i>
                                     </span>
                                 </div>
-                                <p class="form-control" style="background-color: #f8f8f8;">$ 500000</p>
+                                <p class="form-control" style="background-color: #f8f8f8;">$ <?php echo $product->getPrice() ?></p>
                             </div>
                         </div>
                     </div>
@@ -61,7 +71,9 @@
                     <div class="col-12 col-md">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Descripción</label>
-                            <textarea class="form-control" style="min-height: 100px !important;" id="exampleFormControlTextarea1" rows="3" disabled="true" placeholder="Indique detalles del producto">Es lo más de lo más wow</textarea>
+                            <textarea class="form-control" style="min-height: 100px !important;"
+                                      id="exampleFormControlTextarea1" rows="3" disabled="true"
+                                      placeholder="Indique detalles del producto"><?php echo $product->getDescription() ?></textarea>
                         </div>
                     </div>
 
@@ -76,7 +88,7 @@
                                         <i class="fas fa-boxes"></i>
                                     </span>
                                 </div>
-                                <p class="form-control" style="background-color: #f8f8f8;">238</p>
+                                <p class="form-control" style="background-color: #f8f8f8;"><?php echo $product->getStock() ?></p>
                             </div>
                         </div>
                     </div>
