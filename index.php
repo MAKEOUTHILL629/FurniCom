@@ -10,6 +10,7 @@ require_once "logics/ShoppingCart.php";
 require_once "logics/PurchasedProduct.php";
 require_once "logics/Order.php";
 require_once "logics/CategoryByStock.php";
+require_once "logics/SalesMonth.php";
 
 $pid = "";
 $sid = "";
