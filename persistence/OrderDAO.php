@@ -38,4 +38,10 @@ class OrderDAO
     }
 
 
+    public function consultAll()
+    {
+        return "SELECT id_order, fk_shopping_cart,invoice_path,total_purchase,payment,created_at,updated_at FROM orders ";
+    }
+
+
 }

@@ -65,6 +65,16 @@ class Product
         $this->updateAt = $result[7];
         $this->category = $category;
         $this->productDAO = new ProductDAO($this->idProduct, $this->category->getId(), $this->name, $this->description, $this->stock, $this->price, $this->createdAt, $this->updateAt);
+        $this->connection->close();
+    }
+
+    public function consultIdLastCreated()
+    {
+        $this->connection->openConnection();
+        $this->connection->execute($this->productDAO->consultIdLastCreated());
+        $result = $this->connection->extract();
+        $this->connection->close();
+        return $result[0];
     }
 
 

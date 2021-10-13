@@ -117,7 +117,7 @@ class User
 
         $this->connection->openConnection();
         $this->connection->execute($this->userDAO->consultUser());
-        $result = $this->connection->extraer();
+        $result = $this->connection->extract();
         $role = new Role($result[0]);
         $role->consult();
         $genre = new Genres($result[1]);
@@ -134,6 +134,7 @@ class User
         $this->status = $result[7];
         $this->createAt = $result[8];
         $this->updateAt = $result[9];
+        $this->connection->close();
 
     }
 

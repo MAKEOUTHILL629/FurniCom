@@ -47,5 +47,31 @@ class Role
         return $roles;
     }
 
+    /**
+     * @return mixed|string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed|string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return mixed|string
+     */
+    public function getAbbreviation()
+    {
+        return $this->abbreviation;
+    }
+
+
+
 
 }
