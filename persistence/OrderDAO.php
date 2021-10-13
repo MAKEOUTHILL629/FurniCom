@@ -44,4 +44,12 @@ class OrderDAO
     }
 
 
+    public function consultEarns(){
+        return "SELECT total_purchase FROM orders WHERE payment= 1";
+    }
+
+    public function consultQuantityOrders(){
+        return "SELECT SUM(1) FROM orders";
+    }
+
 }

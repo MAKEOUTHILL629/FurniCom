@@ -60,6 +60,31 @@ class Order
         return $orders;
     }
 
+    public function consultEarns()
+    {
+        $this->connection->openConnection();
+        $this->connection->execute($this->orderDAO->consultEarns());
+        $earns = 0;
+        while (($result = $this->connection->extract()) != null) {
+
+            $earns += $result[0];
+
+        }
+
+        $this->connection->close();
+        return $earns;
+    }
+
+    public function consultQuantityOrders()
+    {
+        $this->connection->openConnection();
+        $this->connection->execute($this->orderDAO->consultQuantityOrders());
+
+        $result = $this->connection->extract();
+        $this->connection->close();
+        return $result[0];
+    }
+
     /**
      * @return mixed
      */

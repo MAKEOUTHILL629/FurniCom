@@ -36,7 +36,10 @@
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Ganancias Obtenidas
                                             </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                            <?php
+                                            $order = new Order();
+                                            ?>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$<?php echo $order->consultEarns() ?> </div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -54,7 +57,10 @@
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Stock de Productos
                                             </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">1043</div>
+                                            <?php
+                                            $product = new Product();
+                                            ?>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $product->consultStock() ?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-chair fa-2x text-gray-300"></i>
@@ -72,7 +78,7 @@
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                                 Número de Pedidos
                                             </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">5049</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $order->consultQuantityOrders() ?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-shopping-cart fa-2x text-gray-300"></i>
@@ -362,7 +368,7 @@
         foreach ($categoresStocks as $var) {
             $labels .= '"' . $var->getNameCategory() . '",';
             $quantities .= "" . $var->getStock() . ", ";
-            $colors .= "'".sprintf('#%06X', mt_rand(0, 0xFFFFFF)). "', ";
+            $colors .= "'" . sprintf('#%06X', mt_rand(0, 0xFFFFFF)) . "', ";
         }
 
         ?>

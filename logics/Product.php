@@ -163,6 +163,15 @@ class Product
         $this->connection->close();
     }
 
+    public function consultStock()
+    {
+        $this->connection->openConnection();
+        $this->connection->execute($this->productDAO->amountStock());
+        $result = $this->connection->extract();
+        $this->connection->close();
+        return $result[0];
+    }
+
 
     /**
      * @return mixed|string

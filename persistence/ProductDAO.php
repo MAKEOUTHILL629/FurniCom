@@ -108,5 +108,9 @@ class ProductDAO
         return "UPDATE products SET stock =" . ($this->stock - $amount) . "  WHERE id_product=" . $this->idProducto;
     }
 
+    public function amountStock(){
+        return "SELECT SUM(stock) FROM products";
+    }
+
 
 }
