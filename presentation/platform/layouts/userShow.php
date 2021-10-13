@@ -9,6 +9,7 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider">
+
             <div class="row">
                 <div class="col-12 col-md">
                     <div class="form-group">
@@ -65,7 +66,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-12 col-md">
                     <div class="form-group">
@@ -80,7 +80,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="row">
                 <div class="col-12 col-md-4">

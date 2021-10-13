@@ -29,7 +29,7 @@ class IdentityDocument
     {
         $this->connection->openConnection();
         $this->connection->execute($this->identityDocumentDAO->consult());
-        $result = $this->connection->extraer();
+        $result = $this->connection->extract();
         $this->name = $result[0];
         $this->abbreviation = $result[1];
         $this->connection->close();
@@ -46,6 +46,32 @@ class IdentityDocument
         $this->connection->close();
         return $identityDocuments;
     }
+
+    /**
+     * @return mixed|string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed|string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return mixed|string
+     */
+    public function getAbbreviation()
+    {
+        return $this->abbreviation;
+    }
+
+
 
 
 }

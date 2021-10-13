@@ -53,8 +53,7 @@ class UserDAO
 
     public function create()
     {
-        return "INSERT INTO users (fk_role, fk_genre, fk_identity_document, document_number, first_names, lastnames, address, email, password) 
-                VALUES ('" . $this->role . "', '" . $this->genre . "', '" . $this->documentNumber . "', '" . $this->firtsName . "', '" . $this->lastName . "', '" . $this->address . "', '" . $this->email . "', '" . md5($this->password) . "')";
+        return "INSERT INTO users (fk_role, fk_genre, fk_identity_document, document_number, first_names, lastnames, address, email, password, status) VALUES ('" . $this->role . "', '" . $this->genre . "','" . $this->identityDocument . "' ,'" . $this->documentNumber . "', '" . $this->firtsName . "', '" . $this->lastName . "', '" . $this->address . "', '" . $this->email . "', '" . md5($this->password) . "', '" . $this->active . "')";
     }
 
     public function consultLastId()

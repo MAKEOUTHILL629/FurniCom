@@ -3,6 +3,9 @@ session_start();
 require_once "logics/Product.php";
 require_once "logics/ProductPicture.php";
 require_once "logics/User.php";
+require_once "logics/Role.php";
+require_once "logics/Genres.php";
+require_once "logics/IdentityDocument.php";
 require_once "logics/ShoppingCart.php";
 require_once "logics/PurchasedProduct.php";
 require_once "logics/Order.php";
@@ -78,7 +81,8 @@ $pagSinSesion = array(
     "presentation/product.php",
     "presentation/shop.php",
     'controllers/authenticate.php',
-    'controllers/addProductCart.php'
+    'controllers/addProductCart.php',
+    'controllers/registerUser.php'
 );
 
 if ($pid != "" && (in_array($pid, $pagSinSesion) || (isset($_SESSION["id"]) && $_SESSION["id"] != ""))) {

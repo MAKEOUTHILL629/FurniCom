@@ -56,9 +56,11 @@ class User
 
     public function create()
     {
+
         $this->connection->openConnection();
         $this->connection->execute($this->userDAO->create());
         $this->connection->close();
+
     }
 
     public function existEmail()
@@ -148,7 +150,7 @@ class User
             $identityDocument = new IdentityDocument($result[3]);
             $identityDocument->consult();
 
-            array_push($users, new User($result[0], $role, $genre, $identityDocument, $result[4], $result[5], $result[6], $result[7], $result[8], $result[9], $result[10], $result[11], $result[12]));
+            array_push($users, new User($result[0], $role, $genre, $identityDocument, $result[4], $result[5], $result[6], $result[7], $result[8], "", $result[9], $result[10], $result[11]));
         }
         $this->connection->close();
         return $users;
