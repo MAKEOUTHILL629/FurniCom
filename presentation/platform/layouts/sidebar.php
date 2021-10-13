@@ -1,7 +1,8 @@
 <!-- Sidebar -->
 
 <?php
-
+$user = new User($_SESSION["id"]);
+$user->consultUser();
 
 ?>
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -34,56 +35,87 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-           aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-user"></i>
-            <span>Panel de Gestores</span>
-        </a>
-        <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Acciones:</h6>
-                <a class="collapse-item" href="index.php?sid=<?php echo base64_encode("users_table") ?>">Visualizar</a>
-                <a class="collapse-item" href="index.php?sid=<?php echo base64_encode("user_form") ?>">Crear</a>
+    <?php if ($user->getRole()->getId() == 1) {
+        ?>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
+               aria-expanded="true"
+               aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-user"></i>
+                <span>Panel de Gestores</span>
+            </a>
+            <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Acciones:</h6>
+                    <a class="collapse-item"
+                       href="index.php?sid=<?php echo base64_encode("users_table") ?>">Visualizar</a>
+                    <a class="collapse-item" href="index.php?sid=<?php echo base64_encode("user_form") ?>">Crear</a>
+                </div>
             </div>
+        </li>
+
+
+        <?php
+
+
+    } ?>
+
+
+
+    <?php if ($user->getRole()->getId() == 3) {
+        ?>
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Pedidos
         </div>
-    </li>
+
+        <!-- Nav Item - Tables -->
+        <li class="nav-item">
+            <a class="nav-link" href="index.php?sid=<?php echo base64_encode("orders_table") ?>">
+                <i class="fas fa-fw fa-shopping-cart"></i>
+                <span>Visor de pedidos</span></a>
+        </li>
 
 
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Pedidos
-    </div>
+        <?php
 
-    <!-- Nav Item - Tables -->
-    <li class="nav-item">
-        <a class="nav-link" href="index.php?sid=<?php echo base64_encode("orders_table") ?>">
-            <i class="fas fa-fw fa-shopping-cart"></i>
-            <span>Visor de pedidos</span></a>
-    </li>
 
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Productos
-    </div>
+    } ?>
 
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-           aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-chair"></i>
-            <span>Panel de Gestión</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Acciones:</h6>
-                <a class="collapse-item"
-                   href="index.php?sid=<?php echo base64_encode("products_table") ?>">Visualizar</a>
-                <a class="collapse-item" href="index.php?sid=<?php echo base64_encode("product_form") ?>">Crear</a>
+
+
+    <?php if ($user->getRole()->getId() == 2) {
+        ?>
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Productos
+        </div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+               aria-expanded="true"
+               aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-chair"></i>
+                <span>Panel de Gestión</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Acciones:</h6>
+                    <a class="collapse-item"
+                       href="index.php?sid=<?php echo base64_encode("products_table") ?>">Visualizar</a>
+                    <a class="collapse-item" href="index.php?sid=<?php echo base64_encode("product_form") ?>">Crear</a>
+                </div>
             </div>
-        </div>
-    </li>
+        </li>
 
+
+        <?php
+
+
+    } ?>
 
     <!-- Sidebar Message -->
     <div class="sidebar-card d-none d-lg-flex">
