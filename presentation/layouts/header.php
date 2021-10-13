@@ -11,11 +11,20 @@
                     </a>
 
 
-                    <a class="btn modal_button shadow-sm header-button-1" href="index.php?sid=<?php echo base64_encode("dashboard") ?>">
-                        Dashboard
-                    </a>
-
                     <?php
+                    $user = new User($_SESSION["id"]);
+                    $user->consultUser();
+                    if ($user->getRole()->getId() >= 1 && $user->getRole()->getId() <= 3) {
+
+                        ?>
+                        <a class="btn modal_button shadow-sm header-button-1" style="background-color: #00AAFF !important; margin-left: 10px"
+                           href="index.php?sid=<?php echo base64_encode("dashboard") ?>">
+                            Dashboard
+                        </a>
+
+                        <?php
+
+                    }
                 } else {
 
                     ?>
