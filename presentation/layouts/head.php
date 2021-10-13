@@ -14,15 +14,15 @@
 </head>
 
 <body onload="load()">
-    <!--  <div id="cont-lds " class="position-fixed bg-white h-100 w-100 d-flex justify-content-center align-items-center" style="z-index:3;">-->
-    <!--    <div class="lds-roller">-->
-    <!--      <div></div>-->
-    <!--      <div></div>-->
-    <!--      <div></div>-->
-    <!--      <div></div>-->
-    <!--      <div></div>-->
-    <!--      <div></div>-->
-    <!--      <div></div>-->
-    <!--      <div></div>-->
-    <!--    </div>-->
-    <!--  </div>-->
+  <div id="cont-lds " class="position-fixed bg-white h-100 w-100 d-flex justify-content-center align-items-center" style="z-index:3;">
+    <div class="lds-roller">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>

@@ -41,9 +41,9 @@ class Mail
         $total = 0;
         while (($item = $this->connection->extract()) != null) {
             $detail = [
-                "precio" => $item[0],
-                "nombre" => $item[1],
-                "cantidad" => $item[2],
+                "nombre" => $item[0],
+                "cantidad" => $item[1],
+                "precio" => $item[2],
                 "total" => $item[3]
             ];
 
