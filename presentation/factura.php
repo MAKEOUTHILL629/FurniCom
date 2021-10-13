@@ -1,5 +1,5 @@
 <?php
-$emisor = "Furnicom Asociado";
+$remitente = "Furnicom Asociado";
 $web = "https://Furnicom.com";
 $mensajePie = "Gracias por su compra";
 $fecha = date("Y-m-d");
@@ -62,8 +62,8 @@ $fecha = date("Y-m-d");
                     <tr>
                         <td><?php echo $producto["nombre"] ?></td>
                         <td><?php echo $producto["cantidad"] ?></td>
-                        <td>$<?php echo number_format($producto["precio"], 2) ?></td>
-                        <td>$<?php echo number_format($producto["total"], 2) ?></td>
+                        <td>$<?php echo number_format(floatval($producto["precio"], 2)) ?></td>
+                        <td>$<?php echo number_format(floatval($$producto["total"], 2)) ?></td>
                     </tr>
                 <?php }
                 ?>
