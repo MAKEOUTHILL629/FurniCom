@@ -30,7 +30,7 @@
                         </button>
                     </div>
                     <div class="form-group d-md-flex justify-content-center">
-                        <a href="index.php?sid=<?php echo base64_encode("presentation/platform/tables.php") ?>">¿Olvidaste tu constraseña?</a>
+                        <a href="index.php?sid=<?php echo base64_encode("product_show") ?>">¿Olvidaste tu constraseña?</a>
                     </div>
                 </form>
             </div>
