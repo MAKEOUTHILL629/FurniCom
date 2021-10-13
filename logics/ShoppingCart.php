@@ -47,7 +47,9 @@ class ShoppingCart
         $this->connection->openConnection();
         $this->connection->execute($this->shopingCartDAO->consultCartWithoutPayment($consumer));
         $result = $this->connection->extract();
-        return $result[0];
+        return $result === null ? 0 : $result[0];
+
+
     }
 
     public function updateStatusCartDisable()

@@ -58,10 +58,7 @@ class User
     {
         $this->connection->openConnection();
         $this->connection->execute($this->userDAO->create());
-        $this->connection->execute($this->userDAO->consultLastId());
-        $result = $this->connection->extract();
         $this->connection->close();
-        return $result[0];
     }
 
     public function existEmail()
@@ -165,7 +162,8 @@ class User
         $this->status = $result[0];
     }
 
-    public function consultNumberPhones(){
+    public function consultNumberPhones()
+    {
         $phoneNumbers = new PhoneNumber();
         return $phoneNumbers->consultByUser($this->id);
     }

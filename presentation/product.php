@@ -130,7 +130,7 @@ $images = $picture->consultByProduct($product->getIdProduct());
         function enviarCantidad() {
             <?php
 
-            if(isset($_SESSION["id"])){
+            if(isset($_SESSION["id"]) && $_SESSION["id"] != ""){
             ?>
 
             let url = 'index.php?pid=<?php echo base64_encode('controllers/addProductCart.php')?>&idProduct=<?php echo $product->getIdProduct() ?>&amount=' + cantidad.value;

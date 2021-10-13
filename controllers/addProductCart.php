@@ -1,6 +1,6 @@
 <?php
 
-if ($_GET["idProduct"] && $_SESSION["id"] && $_GET["amount"]) {
+if ($_GET["idProduct"] && ($_SESSION["id"] && $_SESSION["id"] != "") && $_GET["amount"]) {
     $consumer = $_SESSION["id"];
     $idProduct = $_GET["idProduct"];
     $amount = $_GET["amount"];
@@ -10,28 +10,44 @@ if ($_GET["idProduct"] && $_SESSION["id"] && $_GET["amount"]) {
     $product = new Product($idProduct);
     $product->consult();
 
-    if($product->getStock() >= $amount){
-        if (isset($result)) {
+    if ($product->getStock() >= $amount) {
+        if (isset($result) && $result != 0) {
             $purchase = new PurchasedProduct("", $idProduct, $result, $amount);
             $resultExists = $purchase->consultRepeatProduct();
 
-            if(isset($resultExists)){
+            if (isset($resultExists)) {
 
                 $purchase->consult($resultExists);
-                if($purchase->getPurchasedAmount() + $amount <= $product->getStock()){
+                if ($purchase->getPurchasedAmount() + $amount <= $product->getStock()) {
                     $purchase->increaseAmount($amount, $resultExists);
                 }
-            }else{
+            } else {
+                $purchase->create();
+            }
+        } else {
+            $shoppingCart = new ShoppingCart("", $consumer, "", "", 0, 0);
+            $shoppingCart->create();
+            $result = $shoppingCart->consultByConsumerAndNotPayment($consumer);
+            $purchase = new PurchasedProduct("", $idProduct, $result, $amount);
+            $resultExists = $purchase->consultRepeatProduct();
+
+            if (isset($resultExists)) {
+
+                $purchase->consult($resultExists);
+                if ($purchase->getPurchasedAmount() + $amount <= $product->getStock()) {
+                    $purchase->increaseAmount($amount, $resultExists);
+                }
+            } else {
                 $purchase->create();
             }
         }
-    }else{
+    } else {
 
     }
 
     ?>
     <script>
-        window.location.replace('index.php?pid=<?php echo base64_encode("presentation/product.php") ?>&product=<?php echo$_GET["idProduct"] ?>');
+        window.location.replace('index.php?pid=<?php echo base64_encode("presentation/product.php") ?>&product=<?php echo $_GET["idProduct"] ?>');
     </script>
 
     <?php

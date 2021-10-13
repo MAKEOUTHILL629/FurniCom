@@ -57,7 +57,8 @@ class UserDAO
                 VALUES ('" . $this->role . "', '" . $this->genre . "', '" . $this->documentNumber . "', '" . $this->firtsName . "', '" . $this->lastName . "', '" . $this->address . "', '" . $this->email . "', '" . md5($this->password) . "')";
     }
 
-    public function consultLastId(){
+    public function consultLastId()
+    {
         return "SELECT last_insert_id()";
     }
 
@@ -98,10 +99,11 @@ class UserDAO
     }
 
 
-    public function consultUser(){
+    public function consultUser()
+    {
         return "SELECT fk_role,fk_genre,fk_identity_document,document_number,first_names,lastnames,address,email,status,created_at,updated_at
                 FROM users
-                WHERE id_user = '" . $this -> id . "'";
+                WHERE id_user = '" . $this->id . "'";
     }
 
     public function consultStatus()

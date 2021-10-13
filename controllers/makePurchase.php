@@ -24,10 +24,12 @@ if (isset($_SESSION["id"])) {
 
         if (!$cantidadProductoExistente) {
             $totalValue = 0;
+            $amountProducts = 0;
             foreach ($purchases as $var) {
                 $product = new Product($var->getProduct());
                 $product->consult();
-                $totalValue += $var->getPurchasedAmount() + $product->getPrice();
+                $amountProducts += $var->getPurchasedAmount();
+                $totalValue += $var->getPurchasedAmount() * $product->getPrice();
                 $product->susbtractStock($var->getPurchasedAmount());
             }
 
@@ -35,7 +37,7 @@ if (isset($_SESSION["id"])) {
             $order->create();
 
 
-            $cart = new ShoppingCart($result);
+            $cart = new ShoppingCart($result, $consumer, "", "", $amountProducts, $totalValue);
             $cart->updateStatusCartDisable();
 
 
@@ -45,4 +47,8 @@ if (isset($_SESSION["id"])) {
     }
 
 }
+?>
+<script>
+    window.location.replace('index.php');
+</script>
 

@@ -1,10 +1,10 @@
 <?php
-if (isset($_SESSION["id"])) {
+if (isset($_SESSION["id"]) && $_SESSION["id"] != 0) {
     $idConsumer = $_SESSION["id"];
     $shoppingCart = new ShoppingCart();
     $result = $shoppingCart->consultByConsumerAndNotPayment($idConsumer);
 
-    if (isset($result)) {
+    if (isset($result) && $result != 0) {
         $purchase = new PurchasedProduct();
         $purchases = $purchase->purshasedProduts($result);
 

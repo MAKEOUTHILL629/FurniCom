@@ -50,7 +50,7 @@ if (isset($_GET["sid"])) {
             $action = "presentation/platform/layouts/userShow.php";
             $context = "Vista de Item";
             break;
-            
+
         case "product_show":
             $action = "presentation/platform/layouts/productShow.php";
             $context = "Vista de Item";

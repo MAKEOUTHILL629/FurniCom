@@ -30,7 +30,7 @@ class ShoppingCartDAO
 
     public function create()
     {
-        return "INSERT INTO shopping_carts (fk_consumer, purchased_products, subtotal) VALUES ('" . $this->consumer . "', '" . $this->purchasedProducts . "', '" . $this->subTotal . "');";
+        return "INSERT INTO shopping_carts (fk_consumer, purchased_products, subtotal) VALUES ('" . $this->consumer . "', '" . $this->purchasedProducts . "', '" . $this->subTotal . "')";
     }
 
 
@@ -46,11 +46,10 @@ class ShoppingCartDAO
         return "SELECT id_shopping_cart FROM shopping_carts WHERE fk_consumer = " . $consumer . " AND status = 0";
     }
 
-    public function updateStatusCartDisable(){
-        return "UPDATE shopping_carts SET status=1  WHERE id_shopping_cart =". $this->id;
+    public function updateStatusCartDisable()
+    {
+        return "UPDATE shopping_carts SET status=1, purchased_products='" . $this->purchasedProducts . "', subtotal='" . $this->subTotal . "' WHERE id_shopping_cart =" . $this->id;
     }
-
-
 
 
 }

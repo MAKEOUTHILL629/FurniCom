@@ -2,7 +2,8 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center"
+       href="index.php?sid=<?php echo base64_encode("dashboard") ?>">
         <div class="sidebar-brand-icon ">
             <img class="mb-2" src="presentation/img/logo_w.svg" style="max-width: 30px !important;" alt="...">
         </div>
@@ -29,15 +30,16 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+           aria-controls="collapseTwo">
             <i class="fas fa-fw fa-user"></i>
             <span>Panel de Gestores</span>
         </a>
         <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Acciones:</h6>
-                <a class="collapse-item" href="index.php?sid=<?php echo base64_encode("users_table")?>">Visualizar</a>
-                <a class="collapse-item" href="index.php?sid=<?php echo base64_encode("user_form")?>">Crear</a>
+                <a class="collapse-item" href="index.php?sid=<?php echo base64_encode("users_table") ?>">Visualizar</a>
+                <a class="collapse-item" href="index.php?sid=<?php echo base64_encode("user_form") ?>">Crear</a>
             </div>
         </div>
     </li>
@@ -50,7 +52,7 @@
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="index.php?sid=<?php echo base64_encode("orders_table")?>">
+        <a class="nav-link" href="index.php?sid=<?php echo base64_encode("orders_table") ?>">
             <i class="fas fa-fw fa-shopping-cart"></i>
             <span>Visor de pedidos</span></a>
     </li>
@@ -62,15 +64,17 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+           aria-controls="collapseTwo">
             <i class="fas fa-fw fa-chair"></i>
             <span>Panel de Gestión</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Acciones:</h6>
-                <a class="collapse-item" href="index.php?sid=<?php echo base64_encode("products_table")?>">Visualizar</a>
-                <a class="collapse-item" href="index.php?sid=<?php echo base64_encode("product_form")?>">Crear</a>
+                <a class="collapse-item"
+                   href="index.php?sid=<?php echo base64_encode("products_table") ?>">Visualizar</a>
+                <a class="collapse-item" href="index.php?sid=<?php echo base64_encode("product_form") ?>">Crear</a>
             </div>
         </div>
     </li>
